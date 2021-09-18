@@ -1,0 +1,24 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 15% 85%;
+  height: 100vh;
+}
+
+.sidebar {
+  background-color: black;
+  padding: 0.5em;
+}
+
+nav > ol {
+  list-style-type: none;
+  padding: 0;
+}
+
+.search {
+  border: none;
+  background: gray;
+  padding: 0.5em;
+  border-radius: 1em;
+  width: 100%;
+  margin-bottom: 0.5em;
+}
