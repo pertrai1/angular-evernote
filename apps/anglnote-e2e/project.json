@@ -1,0 +1,27 @@
+{
+  "root": "apps/anglnote-e2e",
+  "sourceRoot": "apps/anglnote-e2e/src",
+  "projectType": "application",
+  "architect": {
+    "e2e": {
+      "builder": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/anglnote-e2e/cypress.json",
+        "devServerTarget": "anglnote:serve:development",
+        "tsConfig": "apps/anglnote-e2e/tsconfig.json"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "anglnote:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "builder": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/anglnote-e2e/**/*.{js,ts}"]
+      }
+    }
+  }
+}

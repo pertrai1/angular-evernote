@@ -1,130 +1,8 @@
 {
   "version": 1,
-  "projects": {
-    "anglnote": {
-      "projectType": "application",
-      "root": "apps/anglnote",
-      "sourceRoot": "apps/anglnote/src",
-      "prefix": "anglnote",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/apps/anglnote",
-            "index": "apps/anglnote/src/index.html",
-            "main": "apps/anglnote/src/main.ts",
-            "polyfills": "apps/anglnote/src/polyfills.ts",
-            "tsConfig": "apps/anglnote/tsconfig.app.json",
-            "inlineStyleLanguage": "scss",
-            "assets": [
-              "apps/anglnote/src/favicon.ico",
-              "apps/anglnote/src/assets"
-            ],
-            "styles": ["apps/anglnote/src/styles.scss"],
-            "scripts": []
-          },
-          "configurations": {
-            "production": {
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
-                }
-              ],
-              "fileReplacements": [
-                {
-                  "replace": "apps/anglnote/src/environments/environment.ts",
-                  "with": "apps/anglnote/src/environments/environment.prod.ts"
-                }
-              ],
-              "outputHashing": "all"
-            },
-            "development": {
-              "buildOptimizer": false,
-              "optimization": false,
-              "vendorChunk": true,
-              "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "configurations": {
-            "production": {
-              "browserTarget": "anglnote:build:production"
-            },
-            "development": {
-              "browserTarget": "anglnote:build:development"
-            }
-          },
-          "defaultConfiguration": "development"
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "anglnote:build"
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "apps/anglnote/src/**/*.ts",
-              "apps/anglnote/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/anglnote"],
-          "options": {
-            "jestConfig": "apps/anglnote/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "anglnote-e2e": {
-      "root": "apps/anglnote-e2e",
-      "sourceRoot": "apps/anglnote-e2e/src",
-      "projectType": "application",
-      "architect": {
-        "e2e": {
-          "builder": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/anglnote-e2e/cypress.json",
-            "devServerTarget": "anglnote:serve:development",
-            "tsConfig": "apps/anglnote-e2e/tsconfig.json"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "anglnote:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
-          "options": {
-            "lintFilePatterns": ["apps/anglnote-e2e/**/*.{js,ts}"]
-          }
-        }
-      }
-    }
-  },
   "cli": {
     "defaultCollection": "@nrwl/angular",
-    "packageManager": "npm"
+    "packageManager": "yarn"
   },
   "schematics": {
     "@nrwl/angular": {
@@ -152,6 +30,10 @@
     "@nrwl/angular:component": {
       "style": "scss"
     }
+  },
+  "projects": {
+    "anglnote": "apps/anglnote",
+    "anglnote-e2e": "apps/anglnote-e2e"
   },
   "defaultProject": "anglnote"
 }
